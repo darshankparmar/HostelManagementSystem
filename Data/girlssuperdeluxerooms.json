@@ -1,0 +1,78 @@
+[{
+  "_id": {
+    "$oid": "619b6ba4872d06e990e77573"
+  },
+  "roomNo": 100,
+  "isStatus": false,
+  "personNo": 100
+},{
+  "_id": {
+    "$oid": "619b6ba4872d06e990e77574"
+  },
+  "roomNo": 101,
+  "isStatus": false,
+  "personNo": 101
+},{
+  "_id": {
+    "$oid": "619b6ba4872d06e990e77575"
+  },
+  "roomNo": 102,
+  "isStatus": false,
+  "personNo": 102
+},{
+  "_id": {
+    "$oid": "619b6ba4872d06e990e77576"
+  },
+  "roomNo": 103,
+  "isStatus": false,
+  "personNo": 103
+},{
+  "_id": {
+    "$oid": "619b6ba4872d06e990e77577"
+  },
+  "roomNo": 104,
+  "isStatus": false,
+  "personNo": 104
+},{
+  "_id": {
+    "$oid": "619b6ba4872d06e990e77578"
+  },
+  "roomNo": 105,
+  "isStatus": false,
+  "personNo": 105
+},{
+  "_id": {
+    "$oid": "619b6ba4872d06e990e77579"
+  },
+  "roomNo": 106,
+  "isStatus": false,
+  "personNo": 106
+},{
+  "_id": {
+    "$oid": "619b6ba4872d06e990e7757a"
+  },
+  "roomNo": 107,
+  "isStatus": false,
+  "personNo": 107
+},{
+  "_id": {
+    "$oid": "619b6ba4872d06e990e7757b"
+  },
+  "roomNo": 108,
+  "isStatus": false,
+  "personNo": 108
+},{
+  "_id": {
+    "$oid": "619b6ba4872d06e990e7757c"
+  },
+  "roomNo": 109,
+  "isStatus": false,
+  "personNo": 109
+},{
+  "_id": {
+    "$oid": "619b6ba4872d06e990e7757d"
+  },
+  "roomNo": 110,
+  "isStatus": false,
+  "personNo": 110
+}]

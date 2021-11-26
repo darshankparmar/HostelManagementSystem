@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "6172de30ff528a5839a42308"
+  },
+  "standard": 15000,
+  "deluxe": 25000,
+  "superDeluxe": 40000,
+  "foodPackage": 30000,
+  "electricityBillPerUnit": 6,
+  "securityDeposit": 2500
+}]
