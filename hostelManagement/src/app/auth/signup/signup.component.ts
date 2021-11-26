@@ -49,6 +49,7 @@ export class SignupComponent implements OnInit {
 
   signup() {
     if(!this.userGroup.valid) {
+      alert('Please Enter Valid Details');
       return;
     }
 
