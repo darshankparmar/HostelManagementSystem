@@ -1,0 +1,108 @@
+
+<div class="row" style="width: 100.81%;">
+    <aside class="col-lg-3" style="width: 335px;"> 
+        <admin-hostel-sidebar></admin-hostel-sidebar>
+    </aside>
+    <main class="col-lg-9" style="min-height: 100vh;">
+        
+        <div class="form-body">
+            <div class="row">
+                <div class="form-holder">
+                    <div class="form-content">
+                        <div class="form-items">
+                            <h3>Add Student Details</h3>
+                            <p>Fill in the data below.</p>
+                            <form class="requires-validation" novalidate [formGroup]="studentDetails">
+                                
+                                <div class="col-md-12 mt-3">
+                                    <label class="mb-3 mr-1" for="gender">Gender: </label>
+        
+                                    <input type="radio" class="btn-check" name="gender" id="male" formControlName="gender" (change)="genderOrRoomCatSelected()" value="male" autocomplete="off" required>
+                                    <label class="btn btn-sm btn-outline-secondary" for="male">Male</label>
+        
+                                    <input type="radio" class="btn-check" name="gender" id="female" formControlName="gender" (change)="genderOrRoomCatSelected()" value="female" autocomplete="off" required>
+                                    <label class="btn btn-sm btn-outline-secondary" for="female">Female</label>
+        
+                                </div>
+
+                                <div class="col-md-12">
+                                    <select class="form-select mt-3" name="roomCategory" formControlName="roomCategory" (change)="genderOrRoomCatSelected()" required>
+                                          <option selected disabled value="">Room Category</option>
+                                          <option value="Super Deluxe">Super Delux Room</option>
+                                          <option value="Deluxe">Delux Room</option>
+                                          <option value="Standard">Standard Room</option>
+                                   </select>
+                                </div>
+                            <span *ngIf="showRoomNo == true">
+                                <div class="col-md-12">
+                                    <select class="form-select mt-3" name="roomNo" formControlName="roomNo" required>
+                                          <option selected disabled value="">Room No</option>
+                                          <option *ngFor='let i of roomNo' value={{i}}> {{i}} </option>
+                                   </select>
+                                </div>
+
+                                <div class="col-md-12">
+                                   <input class="form-control" type="text" name="firstName" formControlName="firstName" placeholder="First Name" required>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input class="form-control" type="text" name="lastName" formControlName="lastName" placeholder="Last Name" required>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input class="form-control" type="text" name="fatherName" formControlName="fatherName" placeholder="Father Name" required>
+                                </div>
+                                
+                                <div class="col-md-12">
+                                    <input class="form-control" type="number" name="mobileNo" formControlName="mobileNo" placeholder="Mobile Name" required>
+                                </div>
+                                <div class="col-md-12 text-right" *ngIf="mobileNo!==null && mobileNo.invalid"><small style="color:red;">please enter valid mobile number</small></div> 
+
+                                <div class="col-md-12">
+                                    <input class="form-control" type="number" name="fatherMobileNo" formControlName="fatherMobileNo" placeholder="Father Mobile Name" required>
+                                </div>
+                                <div class="col-md-12 text-right" *ngIf="fatherMobileNo!==null && fatherMobileNo.invalid"><small style="color:red;">please enter valid mobile number</small></div> 
+
+                                <div class="col-md-12">
+                                    <input class="form-control" type="email" name="email" formControlName="email" placeholder="E-mail Address" required>
+                                </div>
+                                <div class="col-md-12 text-right" *ngIf="email!==null && email.invalid"><small style="color:red;">please enter valid Email</small></div> 
+
+                                <div class="col-md-12">
+                                    <input class="form-control" type="number" name="studentAdharCard" formControlName="studentAdharCard" placeholder="Student Adhar Card Number" required>
+                                </div>
+                                <div class="col-md-12 text-right" *ngIf="studentAdharCard!==null && studentAdharCard.invalid"><small style="color:red;">please enter valid Adhar number</small></div> 
+
+                                <div class="col-md-12">
+                                    <input class="form-control" type="number" name="fatherAdharCard" formControlName="fatherAdharCard" placeholder="Father Adhar Card Number" required>
+                                </div>
+                                <div class="col-md-12 text-right" *ngIf="fatherAdharCard!==null && fatherAdharCard.invalid"><small style="color:red;">please enter valid Adhar number</small></div> 
+                                
+                                <div class="col-md-12">
+                                    <input class="form-control" type="text" name="currentAdress" formControlName="currentAdress" placeholder="Current Address" required>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input class="form-control" type="text" formControlName="collegeName" name="collegeName" placeholder="College Name" required>
+                                </div>
+    
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required checked>
+                                    <label class="form-check-label">I confirm that all data are correct</label>
+                                </div>
+                      
+    
+                                <div class="form-button mt-3">
+                                    <button id="submit" type="submit" (click)="addStudent()" class="btn btn-primary">Register</button>
+                                </div>
+                            </span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </main>
+</div>
+

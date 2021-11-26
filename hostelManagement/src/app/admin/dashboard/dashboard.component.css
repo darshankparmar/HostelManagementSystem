@@ -1,0 +1,67 @@
+.div-box {
+    border-radius: 20px;
+    margin: 20px 0px;
+    background-color: #ffffff;
+    padding-top: 20px;
+    box-shadow: 8px 8px 0px 0px #adadad;
+}
+.User-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    margin: 0 auto;
+}
+.User-img img{
+  width: 100%;
+}
+.User-name {
+    text-align: center;
+    font-size: 22px;
+    margin: 15px 0px 10px;
+}
+.designation {
+    text-align: center;
+    font-size: 16px;
+}
+.contact-btn {
+    margin: 0 auto;
+    display: table;
+}
+.contact-btn .btn {
+    width: 95px;
+    margin: 15px 5px;
+}
+.profile-details ul{
+  padding-left: 10px;
+}
+.profile-details ul li{
+  list-style: none;
+}
+.profile-details ul li a {
+    color: #607d8b;
+    text-decoration: none;
+    padding: 12px 15px;
+    display: block;
+    border-bottom: 1px solid #f1f1f1;
+    border-left: 3px solid transparent;
+    transition: 0.4s;
+}
+.profile-details ul li:last-child a {
+  border-bottom: none;
+  border-bottom-right-radius: 20px;
+}
+.profile-details ul li a:hover {
+    color: #2196F3;
+    background-color: #e6f4ff;
+    border-left: 3px solid #2196F3;
+}
+.profile-details ul li a i {
+    margin-right: 8px;
+}
+
+.row {
+    background-color: #152733 !important;
+    overflow: hidden;
+}

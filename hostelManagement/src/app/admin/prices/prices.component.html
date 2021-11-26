@@ -1,0 +1,61 @@
+<div class="row" style="width: 100%;">
+    <aside class="col-lg-3" style="width: 335px;"> 
+        <admin-hostel-sidebar></admin-hostel-sidebar>
+    </aside>
+    <main class="col-lg-9">
+
+        <div class="wrapper wrapper--w900 my-5">
+            <div class="card card-6">
+                <div class="card-heading">
+                        <h2 class="title">Prices</h2>
+                </div>
+                <div class="card-body">  
+                    <h4 class="text-danger text-right mx-2 font-weight-bold">click twice to edit details</h4>
+                    <form [formGroup]="priceDetails">
+                        <div class="form-row">
+                            <div class="name">Super Delux Room :</div> 
+                            <div class="value" (dblclick)="this.priceDetails.get('superDeluxe')!.enable();">
+                                <input class="input--style-6" type="number" name="superDeluxe" formControlName="superDeluxe" [disabled]="true">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Delux Room :</div>
+                            <div class="value" (dblclick)="this.priceDetails.get('deluxe')!.enable();">
+                                <input class="input--style-6" type="number" id="deluxe" name="deluxe" formControlName="deluxe">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Standard Room :</div>
+                            <div class="value" (dblclick)="this.priceDetails.get('standard')!.enable();">
+                                <input class="input--style-6" type="number" id="standard" name="standard" formControlName="standard">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Food Package :</div>
+                            <div class="value" (dblclick)="this.priceDetails.get('foodPackage')!.enable();">
+                                <input class="input--style-6" type="number" id="foodPackage" name="foodPackage" formControlName="foodPackage">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Electricity Bill per Unit :</div>
+                            <div class="value" (dblclick)="this.priceDetails.get('electricityBillPerUnit')!.enable();">
+                                <input class="input--style-6" type="number" id="electricityBillPerUnit" name="electricityBillPerUnit" formControlName="electricityBillPerUnit">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Security Fees :</div>
+                            <div class="value" (dblclick)="this.priceDetails.get('securityDeposit')!.enable();">
+                                <input class="input--style-6" type="number" id="securityDeposit" name="securityDeposit" formControlName="securityDeposit">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card-footer text-right">
+                    <button id="updatePriceDetails" (click)="updatePriceDetails()" class="btn btn-success" type="button" style="background-color: #198754;">Update</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>

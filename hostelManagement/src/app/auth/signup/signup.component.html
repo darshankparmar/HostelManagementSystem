@@ -1,0 +1,61 @@
+<div class="login" *ngIf="!user">
+    <div class="login__content">
+        <div class="login__img">
+            <img src="../../assets/img/img-login.svg" alt="">
+        </div>
+
+        <div class="login__forms">
+            <form class="login__create" id="login-up" [formGroup]="userGroup">
+                <h1 class="login__title">Create Account</h1>
+
+                <div class="login__box">
+                    <i class='bx bx-user-circle login__icon'></i>
+                    <input type="text" id="newUsername" name="newUsername" formControlName="newUsername" placeholder="Username" class="login__input" required minlength="3">
+                </div>
+
+                <div class="login__box">
+                    <i class='bx bx-user login__icon'></i>
+                    <input type="text" id="firstName" name="firstName" formControlName="firstName" placeholder="First Name" class="login__input" required>
+                </div>
+
+                <div class="login__box">
+                    <i class='bx bx-user login__icon'></i>
+                    <input type="text" id="lastName" name="lastName" formControlName="lastName"placeholder="Last Name" class="login__input" required>
+                </div>
+
+                <div class="login__box">
+                    <i class='bx bx-phone-call login__icon'></i>
+                    <input type="tel" id="mobileNumber" name="mobileNumber" formControlName="mobileNumber" placeholder="Phone Number" pattern="[0-9]{10}" class="login__input" required>
+                </div>
+                <!-- <div class="text-right" *ngIf="mobileNumber.errors.pattern"><small> Password Not Matched</small></div>  -->
+
+                <div class="login__box">
+                    <i class='bx bx-at login__icon'></i>
+                    <input type="email" id="email" name="email" formControlName="email" placeholder="Email" class="login__input" required>
+                </div>
+                <div class="text-right" *ngIf="email!==null && email.invalid && email.errors.email"><small> Invalid Email</small></div> 
+
+                <div class="login__box">
+                    <i class='bx bx-lock-alt login__icon'></i>
+                    <input type="password" id="newPassword" name="newPassword" formControlName="newPassword" placeholder="Password" class="login__input" required>
+                </div>
+
+                <div class="login__box">
+                    <i class='bx bx-lock-alt login__icon'></i>
+                    <input type="password" id="cPassword" name="cPassword" formControlName="cPassword" placeholder="Confirm Password" class="login__input mb-1" required>
+                </div>
+                <div class="text-right" *ngIf="cPassword!==null && cPassword.invalid && cPassword.errors.passwordMatch"><small> Password Not Matched</small></div> 
+
+                <button type="button" (click)="signup()" class="login__button">Sign Up</button>
+
+                <div>
+                    <span class="login__account">Already have an Account ?</span>
+                    <span routerLink="/auth/SignIn" class="login__signup" id="sign-in"> Sign In</span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="user?redirectToHome():false">
+</div>

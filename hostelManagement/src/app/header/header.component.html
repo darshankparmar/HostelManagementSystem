@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand text-light" routerLink="/dashboard"> {{title}} </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/hostel-detail" routerLinkActive="active">Hostel Detail</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contactUs" routerLinkActive="active">Contact Us</a>
+          </li>
+      </ul>
+      <ul class="navbar-nav mr-2" *ngIf="user">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
+                <a style="padding: 5px;"><img src="../../assets/img/profileImg/{{user.username}}.jpg" onerror="src='../../assets/img/profileImg/profilePic.jpg'" class="rounded-circle" style="width:40px; height:40px; border: double;"></a>
+                Welcome {{user.username}}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="min-width: 180px;">
+                <li><a routerLink="/profile" class="dropdown-item">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a (click)="logout()"  class="dropdown-item">Sign out</a></li>
+              </div>
+            </li>
+      </ul>
+      <button *ngIf="user?.role == 'Admin'" type="button" routerLink="/admin" routerLinkActive="active" class="btn btn-outline-danger mx-2">Admin  <i class="fas fa-user-shield"></i></button>
+
+      <button *ngIf="!user" type="button" routerLink="/auth" routerLinkActive="active" class="btn btn-outline-success mx-2">Login / SignUp <i class="fas fa-sign-in-alt"></i></button>
+  </div>
+</nav>

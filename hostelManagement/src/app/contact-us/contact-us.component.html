@@ -1,0 +1,145 @@
+<div class="contact2" id="contact">
+    <div class="container">
+      <div class="row contact-container">
+        <div class="col-lg-12">
+          <div class="card card-shadow border-0 mb-4">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="contact-box p-4">
+                  <div class="row">
+                    <div class="col-lg-8">
+                      <h4 class="title">Contact Us</h4>
+                    </div>
+                      <div *ngIf="user" class="col-lg-4">
+                        <div class="icon-badge-container mx-1" style="padding-left: 167px;">
+                          <a href="#" data-toggle="modal" [attr.data-target]="'#showAdminreply'"><i class="far fa-envelope icon-badge-icon"></i></a>
+                          <div class="icon-badge"><b>{{totalReplyMsg}}</b></div>
+                        </div>
+                      </div>
+                  </div>
+                  <form [formGroup]="contactFormGroup">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="form-group mt-3">
+                            <b><label for="title">Subject</label></b>
+                            <input type="title" class="form-control" id="title" name="title" formControlName="title" placeholder="Enter Your Title" required value="">
+                        </div>
+                      </div>
+                      
+                      <div class="col-lg-12">
+                        <div class="form-group  mt-3">
+                            <textarea class="form-control" id="query" name="query" formControlName="query" rows="3" required minlength="6" placeholder="How May We Help You ?"></textarea>
+                        </div>
+                      </div>
+                      
+                        <div *ngIf="user" class="col-lg-12">
+                          <button type="submit" (click)="contactFormSubmit()" class="btn btn-danger-gradiant mt-3 mb-3 text-white border-0 py-2 px-3"><span> SUBMIT NOW <i class="ti-arrow-right"></i></span></button>
+                          <button type="button" (click)="showHistory()" class="btn btn-danger-gradiant mt-3 mb-3 text-white border-0 py-2 px-3 mx-2" data-toggle="modal" data-target="#history"><span> HISTORY <i class="ti-arrow-right"></i></span></button>
+                        </div>
+                      
+                        <div *ngIf="!user" class="col-lg-12">
+                          <button type="submit" class="btn btn-danger-gradiant mt-3 text-white border-0 py-2 px-3" disabled><span> SUBMIT NOW <i class="ti-arrow-right"></i></span></button>
+                          <small class="form-text text-muted">First login to Contact with Us.</small>
+                        </div>
+                     
+                    </div>
+                  </form>
+                </div>
+              </div>
+            <div class="col-lg-4 bg-image" style="background-image:url(../assets/img/contact.jpg)">
+                      <div class="detail-box p-4">
+                        <h5 class="text-white font-weight-light mb-3">ADDRESS</h5>
+                        <p class="text-white op-7">College Road Nadiad</p>
+                        <h5 class="text-white font-weight-light mb-3 mt-4">CALL US</h5>
+                        <div class="text-white op-7 round-social light m-0" style="font-size:15px;">
+                          <div style="padding: 15px 0px;">
+                            <span>9825125282</span>
+                            <a href="tel:9825125282" class="text-decoration-none text-white border border-white rounded-circle" target="_blank"> <i class="fas fa-phone-volume"></i></a>
+                          </div>
+                          <div style="padding: 15px 0px;">
+                            <span>8469108864</span>
+                            <a href="tel:8469108864" class="text-decoration-none text-white border border-white rounded-circle" target="_blank"> <i class="fas fa-phone-volume"></i></a>
+                          </div>
+                        </div>
+                        <div class="round-social light">
+                          <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=darshanparmar263@gmail.com" class="ml-0 text-decoration-none text-white border border-white rounded-circle" target="_blank"><i class="far fa-envelope"></i></a>
+                          <a href="https://github.com/darshankparmar" class="text-decoration-none text-white border border-white rounded-circle" target="_blank"><i class="fab fa-github"></i></a>
+                          <a href="https://youtube.com/" class="text-decoration-none text-white border border-white rounded-circle" target="_blank"><i class="fab fa-youtube"></i></a>
+                        </div>
+                      </div>
+                    </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+  <!-- Admin Message Modal -->
+  <div class="modal fade" id="showAdminreply" tabindex="-1" role="dialog" aria-labelledby="showAdminreply" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: rgb(187 188 189);">
+          <h3 class="modal-title m-0" id="showAdminreply">Admin Reply</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="messagebd">
+          <table *ngIf="replyMsgList.length" class="table-striped table-bordered col-md-12 text-center">
+            <thead style="background-color: rgb(111 202 203);">
+                <tr>
+                    <th>No</th>
+                    <th>Reply Message</th>
+                    <th>datetime</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let replyMsg of replyMsgList;let i = index">
+                <td>{{i + 1}}</td>
+                <td>{{replyMsg.replyMsg}}</td>
+                <td>{{replyMsg.repliedAt  | date: 'dd MMM yyyy hh:mm a' }}</td>              
+              </tr>
+            </tbody>
+          </table>
+          <div *ngIf="!replyMsgList.length">
+            <h3 class="m-3">No Data Available</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- history Modal -->
+  <div class="modal fade" id="history" tabindex="-1" role="dialog" aria-labelledby="history" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: rgb(187 188 189);">
+          <h3 class="modal-title m-0" id="history">Your Sent Query</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="bd">
+          <table *ngIf="contactHistory.length" class="table-striped table-bordered col-md-12 text-center">
+            <thead style="background-color: rgb(111 202 203);">
+                <tr>
+                    <th>Title</th>
+                    <th>Message</th>
+                    <th>datetime</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contact of contactHistory">
+                  <td>{{contact.title}}</td>
+                  <td>{{contact.query}}</td>
+                  <td>{{contact.insertedAt  | date: 'dd MMM yyyy hh:mm a' }}</td>
+                </tr>                            
+            </tbody>
+          </table>
+          <div *ngIf="!contactHistory.length" class="my-1">you have not contacted us.</div>
+        </div>
+      </div>
+    </div>
+  </div>

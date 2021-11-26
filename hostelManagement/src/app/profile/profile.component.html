@@ -1,0 +1,71 @@
+<div class="container">
+    <div *ngIf="user" class="row">
+        <div class="jumbotron p-3 mb-3" style="display: flex;justify-content: center;width: 28%;border-radius: 50px;margin: 0 auto;">
+            <div class="user-info">
+                <img class="rounded-circle mb-3 bg-dark" src="../../assets/img/profileImg/{{user.username}}.jpg" onerror="src='../../assets/img/profileImg/profilePic.jpg'" style="width:215px;height:215px;padding:1px;">
+                <form action="partials/_manageProfile.php" method="POST">
+                    <small>Remove Image : </small><button type="submit" class="btn btn-primary" name="removeProfilePic" style="font-size: 12px;padding: 3px 8px;border-radius: 9px;" disabled>remove</button>
+                </form>
+                <form [formGroup]="fileUploadForm" (ngSubmit)="onFormSubmit()" style="margin-top: 7px;">
+                    <div class="upload-btn-wrapper">
+                        <small>Change Image :</small>
+                        <button class="btn upload mx-1">{{fileInputLabel || 'Choose File'}}</button>
+                        <input type="file" name="image" id="image" accept="image/*" (change)="onFileSelected($event)" #UploadFileInput>
+                    </div>
+                    <button type="submit" name="updateProfilePic" class="btn btn-primary" style="margin-top: -20px;font-size: 15px;padding: 3px 8px;">Update</button>
+                </form>
+                
+                <ul class="meta list list-unstyled" style="text-align:center;">
+                    <li class="username my-2"><a routerLink="/profile">@{{user.username}}</a></li>
+                    <li class="name">{{user.firstName}} {{user.lastName}}
+                        <label class="label label-info">({{user.role}})</label>
+                    </li>
+                    <li class="email">{{user.email}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="content-panel mb-3" style="display: flex;justify-content: center;width: 50%;">
+            <div class="border p-4" style="border: 2px solid rgba(0, 0, 0, 0.1);border-radius: 1.1rem;background-color: aliceblue;">
+                <h2 class="title text-center">Profile<span class="pro-label label label-warning"> ({{user.role}})</span></h2>
+            
+                <form [formGroup]="userProfile">
+                    <div class="form-group">
+                        <b><label for="username">Username :</label></b>
+                        <input class="form-control" id="username" name="username" formControlName="username" type="text" [disabled]="true" value="{{user.username}}">
+                    </div>
+                    <div class="form-row">
+                    <div class="form-group col-md-6" (click)="this.userProfile.get('firstName')!.enable();">
+                        <b><label for="firstName">First Name :</label></b>
+                        <input type="text" class="form-control" id="firstName" name="firstName" formControlName="firstName" placeholder="First Name" required value="{{user.firstName}}">
+                    </div>
+                    <div class="form-group col-md-6" (click)="this.userProfile.get('lastName')!.enable();">
+                        <b><label for="lastName">Last Name :</label></b>
+                        <input type="text" class="form-control" id="lastName" name="lastName" formControlName="lastName" placeholder="Last name" required value="{{user.lastName}}">
+                    </div>
+                    </div>
+                    <div class="form-group" (click)="this.userProfile.get('email')!.enable();">
+                        <b><label for="email">Email :</label></b>
+                        <input type="email" class="form-control" id="email" name="email" formControlName="email" placeholder="Enter Your Email" required value="{{user.email}}" >
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group  col-md-6" (click)="this.userProfile.get('mobileNumber')!.enable();">
+                            <b><label for="phone">Phone No :</label></b>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon">+91</span>
+                                </div>
+                                <input type="tel" class="form-control" id="mobileNumber" name="mobileNumber" formControlName="mobileNumber" placeholder="Enter Your Phone Number" required pattern="[0-9]{10}" maxlength="10" value="{{user.mobileNumber}}">
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <b><label for="password">Password :</label></b>    
+                            <input class="form-control" id="password" name="password" formControlName="password" placeholder="Enter Password" type="password" required data-toggle="password">
+                        </div>
+                    </div>
+                    <button type="submit" (click)="updateUserProfile()" name="updateProfileDetail" class="btn btn-primary">Update</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

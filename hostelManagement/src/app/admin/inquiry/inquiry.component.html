@@ -1,0 +1,118 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<div class="row" style="width: 100.81%;">
+    <aside class="col-lg-3" style="width: 335px;"> 
+        <admin-hostel-sidebar></admin-hostel-sidebar>
+    </aside>
+    <main class="col-lg-9">
+        
+        <div class="row py-5">
+            <div class="col-lg-10 mx-auto">
+              <div class="card rounded shadow border-0">
+                <div class="card-body p-0 bg-white rounded">
+                  <div class="table-responsive" style="padding: 20px;">
+                    <table *ngIf="queries.length" id="example" style="width:100%;margin-bottom: 0;background-color: #d8c9c4 !important;" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Username</th>
+                          <th>Title</th>
+                          <th>Message</th>
+                          <th>datetime</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let query of queries;let i = index">
+                            <td>{{i + 1}}</td>
+                            <td>{{query.username}}</td>
+                            <td>{{query.title}}</td>
+                            <td>{{query.query}}</td>
+                            <td>{{query.insertedAt  | date: 'dd MMM yyyy hh:mm a' }}</td>
+                            <td>
+                              <!-- For Reply (Button trigger modal) -->
+                              <button type="button" (click)="setValue(query)" class="btn btn-primary" data-toggle="modal" [attr.data-target]="'#reply'+ query._id">
+                                <i class="fas fa-reply"></i>
+                              </button>
+
+                              <button type="button" (click)="setCustomReplyMsgList(query._id)" class="btn btn-info float-end" data-toggle="modal" [attr.data-target]="'#showAllreply'">
+                                <i class="fas fa-history"></i>
+                              </button>
+                            </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<span *ngFor="let query of queries">
+  <!-- Send Reply Modal -->
+  <div class="modal fade" id="reply{{query._id}}" tabindex="-1" role="dialog" aria-labelledby="replyLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background: cadetblue;">
+          <h1 class="modal-title m-0" id="replyLabel">Reply to {{query.username}}</h1>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="replyMessageForm">
+            <div class="form-group">
+              <label for="replyMsg" class="col-form-label">Message:</label>
+              <textarea class="form-control" id="replyMsg" name="replyMsg" formControlName="replyMsg" placeholder="Write reply message"></textarea>
+            </div>
+            <button type="button" (click)="sendReplyMessage()" class="btn btn-primary float-end">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</span>
+
+<!-- Reply View Modal -->
+<div class="modal fade bd-example-modal-lg" id="showAllreply" tabindex="-1" role="dialog" aria-labelledby="showAllreplyLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background: cadetblue;">
+        <h2 class="modal-title m-0" id="showAllreplyLabel">History</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="background: darkgray;">
+        <div class="card rounded shadow border-0">
+          <div class="card-body p-0 bg-white rounded">
+            <div class="table-responsive">
+              <table *ngIf="customreplyMsgList.length" id="example" style="width:100%;margin-bottom: 0;" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Reply Messages</th>
+                    <th>datetime</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let replyMsg of customreplyMsgList;let i = index">
+                      <td>{{i + 1}}</td>
+                      <td>{{replyMsg.replyMsg}}</td>
+                      <td>{{replyMsg.repliedAt  | date: 'dd MMM yyyy hh:mm a' }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div *ngIf="!customreplyMsgList.length">
+                <h3 class="m-3">No Data Available</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,117 @@
+.icon-badge-group .icon-badge-container {
+    display: inline-block;
+  
+  }
+  .icon-badge-container {
+    
+    position: absolute;
+  }
+  .icon-badge-icon {
+    font-size: 30px;
+    color: rgb(0 0 0 / 50%);
+    position: relative;
+  }
+  .icon-badge {
+    background-color: #979797;;
+    font-size: 10px;
+    color: white;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 49%;
+    position: relative;
+    top: -35px;
+    left: 19px;
+  }
+.footer.container-fluid.bg-dark.text-light {
+    position:fixed;
+    bottom:0;
+}
+.contact2 {
+    font-family: "Montserrat", sans-serif;
+    color: #8d97ad;
+    font-weight: 300;
+    background-image: url("../../assets/img/map.jpg");
+    height: 400px;
+    margin-bottom: 300px;
+    background-position: center top;
+}
+
+
+.contact2 h1,
+.contact2 h2,
+.contact2 h3,
+.contact2 h4,
+.contact2 h5,
+.contact2 h6 {
+  color: #3e4555;
+  font-size: x-large;
+}
+
+.contact2 .font-weight-medium {
+  font-weight: 500;
+}
+
+.contact2 .subtitle {
+  color: #8d97ad;
+  line-height: 24px;
+}
+
+.contact2 .bg-image {
+  background-size: cover;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.contact2 .card.card-shadow {
+    -webkit-box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.1);
+    box-shadow: 0px 0px 30px rgba(61, 109, 214, 0.774);
+}
+
+.contact2 .detail-box .round-social {
+  margin-top: 100px;
+}
+
+.contact2 .round-social a {
+  background: transparent;
+  margin: 0 7px;
+  padding: 11px 12px;
+}
+
+.contact2 .contact-container .links a {
+  color: #8d97ad;
+}
+
+.contact2 .contact-container {
+  position: relative;
+  top: 164px;
+}
+
+.contact2 .btn-danger-gradiant {
+  background: #ff4d7e;
+  background: -webkit-linear-gradient(legacy-direction(to right), #ff4d7e 0%, #ff6a5b 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#ff4d7e), to(#ff6a5b));
+  background: -webkit-linear-gradient(left, #ff4d7e 0%, #ff6a5b 100%);
+  background: -o-linear-gradient(left, #ff4d7e 0%, #ff6a5b 100%);
+  background: linear-gradient(to right, #ff4d7e 0%, #ff6a5b 100%);
+}
+
+.contact2 .btn-danger-gradiant:hover {
+  background: #ff6a5b;
+  background: -webkit-linear-gradient(legacy-direction(to right), #ff6a5b 0%, #ff4d7e 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#ff6a5b), to(#ff4d7e));
+  background: -webkit-linear-gradient(left, #ff6a5b 0%, #ff4d7e 100%);
+  background: -o-linear-gradient(left, #ff6a5b 0%, #ff4d7e 100%);
+  background: linear-gradient(to right, #ff6a5b 0%, #ff4d7e 100%);
+}
+
+td {
+  padding: 10px;
+}
+
+th {
+  padding: 10px;
+}

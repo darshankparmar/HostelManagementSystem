@@ -1,0 +1,42 @@
+  
+<div class="login mt-4 mb-4" *ngIf="!user">
+    <div class="login__content">
+        <div class="login__img">
+            <img src="../../assets/img/img-login.svg" alt="">
+        </div>
+
+        <div class="login__forms">
+            <form class="login__registre" id="login-in">
+                <h1 class="login__title">Sign In</h1>
+
+                <div class="login__box">
+                    <i class='bx bx-user-circle login__icon'></i>
+                    <input type="text" id="currentUsername" name="currentUsername" [(ngModel)]="currentUsername" placeholder="Username" class="login__input" required> 
+                </div>
+                <!-- <div class="text-right" *ngIf="currentUsername==null"><small> *Required</small></div>  -->
+                <!-- <div *ngIf="currentUsername.invalid && (currentUsername.dirty || currentUsername.touched)" class="alert">           
+                        <div *ngIf="currentUsername.errors?.required">
+                            Name is required.
+                        </div>
+                </div> -->
+                <div class="login__box">
+                    <i class='bx bx-lock-alt login__icon'></i>
+                    <input type="password" id="currentPassword" name="currentPassword" [(ngModel)]="currentPassword" placeholder="Password" class="login__input" required>
+                </div>
+                <!-- <small *ngIf="error">{{error}}</small> -->
+                <div *ngIf="error" class="alert alert-danger mt-2" role="alert">
+                    {{error}}
+                </div>
+                <button type="submit" (click)="signin()" class="login__button">Sign in</button>
+
+                <div>
+                    <span class="login__account">Don't have an Account ?</span>
+                    <span class="login__signin" id="sign-up" routerLink="/auth/SignUp"> Sign Up</span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="user?redirectToHome():false">
+</div>

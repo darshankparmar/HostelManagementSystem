@@ -1,0 +1,72 @@
+.card-profile {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.card {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    color: rgba(0, 0, 0, 0.87);
+    background: #fff;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+}
+
+.card-profile .card-avatar, .card-testimonial .card-avatar {
+    max-width: 60px;
+    height: 60px;
+    margin: -30px auto 0;
+    background-color: aliceblue;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 16px 38px -12px rgb(0 0 0 / 56%), 0 4px 25px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
+}
+
+.card .table {
+    padding: 11px 0px;
+}
+
+.table {
+    margin-bottom: 0px;
+}
+
+span.fa-stack {
+    margin-top: 15px;
+    width: 3em;
+}
+
+i.fas.fa-arrow-alt-circle-right {
+    font-size: xx-large;
+}
+
+.form-control {
+    font-weight: bold !important;
+}
+
+.modal-content {
+    width: 133%;
+}
+
+label span {
+    color: burlywood;
+}
+
+.fa-stack-2x {
+    font-size: 1.5em;
+}
+
+.div-box {
+    border-radius: 20px;
+    margin: 20px 0px;
+    background-color: #dadada;
+    padding: 6px;
+    box-shadow: 8px 8px 0px 0px #6e6767;
+}
+
+.room-title {
+    text-align: center;
+    font-size: 22px;
+    margin: 15px 0px 10px;
+}
